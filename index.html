@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Denúncia SP | Portal Oficial</title>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="img /sp.png">
+</head>
+<body class="premium-theme">
+
+    <header class="main-header glass">
+        <div class="container navbar">
+            <a href="index.html" class="logo-area">
+                <img src="img /logo_branca_ssp.png" alt="SSP SP" class="logo-img">
+                <span class="logo-text">Web Denúncia</span>
+            </a>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="acompanhamento.html">Acompanhar</a></li>
+                    <li><a href="duvidas.html">Dúvidas</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content sp-bg">
+        <div class="hero-overlay">
+            <section class="hero-section container">
+                <div class="hero-text-block">
+                    <h1>Sua voz é a nossa maior <br> ferramenta contra o crime.</h1>
+                    <p>Denuncie de forma 100% anônima e segura. <br> 
+                    A sua identidade nunca será solicitada.</p>
+                    
+                    <div class="cta-area">
+                        <a href="formulario.html" class="btn btn-primary btn-premium">FAZER DENÚNCIA AGORA</a>
+                    </div>
+                </div>
+
+                <div class="chatbot-floating glass">
+                    <div class="bot-card">
+                        <div class="bot-header">
+                            <span class="bot-icon">🤖</span>
+                            <div>
+                                <h3>Triagem Inteligente</h3>
+                                <p>Dúvida sobre o crime? Eu ajudo.</p>
+                            </div>
+                        </div>
+                        <button class="btn btn-secondary btn-sm" onclick="abrirChatbot()">Iniciar Triagem Rápida</button>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container footer-container">
+            <p>© 2026 Secretaria de Segurança Pública de São Paulo</p>
+            <div class="security-tag glass-tag">
+                <span>Criptografia SSL de 256 bits</span>
+            </div>
+        </div>
+    </footer>
+
+    <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+    </div>
+</div>
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+<script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+</script>
+</body>
+</html>

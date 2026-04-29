@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Formulário de denúncia anônima - Secretaria de Segurança Pública de São Paulo.">
+    <title>Fazer Denúncia | Web Denúncia SP</title>
+    <link rel="stylesheet" href="styles.css">
+     <link rel="icon" type="image/png" href="img /sp.png">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container navbar">
+            <a href="index.html" class="logo-link" title="Voltar para a Página Inicial">
+                <div class="logo-area">
+                    <img src="img /logo_branca_ssp.png" alt="Logotipo Oficial da SSP-SP" class="logo-img">
+                    <span class="logo-text">Web Denúncia</span>
+                </div>
+            </a>
+
+            <nav class="main-nav" aria-label="Navegação Principal">
+                <ul class="nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="formulario.html" class="active">Fazer Denúncia</a></li>
+                    <li><a href="acompanhamento.html">Acompanhar</a></li>
+                    <li><a href="duvidas.html">Dúvidas</a></li>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="trust-banner" role="alert">
+            <p><strong>🔒 SIGILO ABSOLUTO GARANTIDO:</strong> Seu endereço IP não está sendo rastreado e não solicitamos dados de identificação pessoal.</p>
+        </div>
+
+        <section class="form-container">
+            <h1>Relatar Ocorrência Anônima</h1>
+            <p class="form-subtitle">Preencha o máximo de informações possíveis para auxiliar na investigação.</p>
+            
+            <form action="sucesso.html" method="POST" enctype="multipart/form-data">
+                
+                <fieldset>
+                    <legend>1. Sobre o Fato</legend>
+                    
+                    <div class="form-group">
+                        <label for="tipo-crime">O que você deseja denunciar?</label>
+                        <select id="tipo-crime" name="tipo-crime" required aria-required="true">
+                            <option value="">Selecione o tipo de crime...</option>
+                            <option value="vandalismo">Vandalismo / Dano ao Patrimônio</option>
+                            <option value="violencia-mulher">Violência contra a Mulher</option>
+                            <option value="trafico">Tráfico de Entorpecentes</option>
+                            <option value="roubo-furto">Roubo ou Furto</option>
+                            <option value="maus-tratos">Maus-tratos a Animais</option>
+                            <option value="outros">Outros</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="local">Local da Ocorrência (Endereço ou Ponto de Referência)</label>
+                        <input type="text" id="local" name="local" placeholder="Ex: Rua Direita, 100 - Bairro Centro" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <label for="data-fato">Data Aproximada</label>
+                            <input type="date" id="data-fato" name="data-fato">
+                        </div>
+                        <div class="form-group col">
+                            <label for="hora-fato">Hora Aproximada</label>
+                            <input type="time" id="hora-fato" name="hora-fato">
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>2. Relato e Provas</legend>
+                    
+                    <div class="form-group">
+                        <label for="descricao">Relato Detalhado (Quem, Como e Onde)</label>
+                        <textarea id="descricao" name="descricao" rows="6" placeholder="Descreva o que aconteceu, características dos envolvidos, placas de veículos, etc." required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="anexos">Anexar Provas (Fotos, Vídeos ou Áudios)</label>
+                        <div class="custom-file-upload">
+                            <input type="file" id="anexos" name="anexos" multiple accept="image/*,video/*,audio/*">
+                            <p class="file-hint">Formatos aceitos: JPG, PNG, MP4, MP3. Tamanho máx: 50MB.</p>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="form-actions">
+                    <label class="confirm-checkbox">
+                        <input type="checkbox" required>
+                        <span>Declaro que as informações relatadas são verdadeiras sob pena da lei.</span>
+                    </label>
+                    
+                    <button type="submit" class="btn btn-submit">ENVIAR DENÚNCIA ANÔNIMA</button>
+                    <p class="protocol-warning">Ao enviar, você receberá um <strong>Número de Protocolo</strong> único. Guarde-o para acompanhar o status.</p>
+                </div>
+
+            </form>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container footer-wrapper">
+            <div class="legal-info">
+                <p>🔒 Portal Seguro SSP-SP | &copy; 2026 Governo do Estado de São Paulo</p>
+            </div>
+            <nav class="footer-nav" aria-label="Links de Apoio">
+                <a href="#">Privacidade</a>
+                <a href="#">Acessibilidade</a>
+                <a href="duvidas.html">Ajuda</a>
+            </nav>
+        </div>
+    </footer>
+
+
+    <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+    </div>
+</div>
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+<script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+</script>
+
+</body>
+</html>
+
