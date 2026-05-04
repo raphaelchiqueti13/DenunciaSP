@@ -6,7 +6,7 @@
     <meta name="description" content="Formulário de denúncia anônima - Secretaria de Segurança Pública de São Paulo.">
     <title>Fazer Denúncia | Web Denúncia SP</title>
     <link rel="stylesheet" href="styles.css">
-     <link rel="icon" type="image/png" href="img /sp.png">
+    <link rel="icon" type="image/png" href="img /sp.png">
 </head>
 <body>
 
@@ -25,7 +25,6 @@
                     <li><a href="formulario.html" class="active">Fazer Denúncia</a></li>
                     <li><a href="acompanhamento.html">Acompanhar</a></li>
                     <li><a href="duvidas.html">Dúvidas</a></li>
-                    </li>
                 </ul>
             </nav>
         </div>
@@ -40,7 +39,8 @@
             <h1>Relatar Ocorrência Anônima</h1>
             <p class="form-subtitle">Preencha o máximo de informações possíveis para auxiliar na investigação.</p>
             
-            <form action="sucesso.html" method="POST" enctype="multipart/form-data">
+            <!-- Removido o action="sucesso.html" para evitar o erro 405 e permitir que o JS controle o envio -->
+            <form id="formDenuncia">
                 
                 <fieldset>
                     <legend>1. Sobre o Fato</legend>
@@ -61,6 +61,12 @@
                     <div class="form-group">
                         <label for="local">Local da Ocorrência (Endereço ou Ponto de Referência)</label>
                         <input type="text" id="local" name="local" placeholder="Ex: Rua Direita, 100 - Bairro Centro" required>
+                    </div>
+
+                    <!-- CAMPO INCLUSO: Necessário para o Make enviar o e-mail de retorno -->
+                    <div class="form-group">
+                        <label for="email-usuario">Seu E-mail (Para receber o protocolo oficial)</label>
+                        <input type="email" id="email-usuario" name="email-usuario" placeholder="email@exemplo.com" required>
                     </div>
 
                     <div class="form-row">
@@ -99,7 +105,7 @@
                     </label>
                     
                     <button type="submit" class="btn btn-submit">ENVIAR DENÚNCIA ANÔNIMA</button>
-                    <p class="protocol-warning">Ao enviar, você receberá um <strong>Número de Protocolo</strong> único. Guarde-o para acompanhar o status.</p>
+                    <p class="protocol-warning">Ao enviar, você receberá um <strong>Número de Protocolo</strong> único por e-mail.</p>
                 </div>
 
             </form>
@@ -118,19 +124,25 @@
             </nav>
         </div>
     </footer>
+ <!-- 1. CHATBASE -->
+    <script>
+    (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="Z3NUzuwDjytv1wmhsGTCN";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+    </script>
 
-
+    <!-- 2. VLIBRAS -->
     <div vw class="enabled">
-    <div vw-access-button class="active"></div>
-    <div vw-plugin-wrapper>
-        <div class="vw-plugin-top-wrapper"></div>
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
     </div>
-</div>
-<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-<script>
-    new window.VLibras.Widget('https://vlibras.gov.br/app');
-</script>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+
+    <!-- 3. SEU SCRIPT DE LÓGICA (MUITO IMPORTANTE) -->
+    <script src="scripts.js"></script>
 
 </body>
 </html>
-

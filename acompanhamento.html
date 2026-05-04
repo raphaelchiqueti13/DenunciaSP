@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" href="img /sp.png">
 </head>
+
 <body>
 
     <header class="main-header">
@@ -34,54 +36,58 @@
     <main class="container">
         <section class="tracking-section" aria-labelledby="tracking-title">
             <h1 id="tracking-title">Acompanhamento de Denúncia</h1>
-            <p class="section-intro">Utilize o código de protocolo gerado ao final da sua denúncia para verificar o andamento das investigações.</p>
-            
-            <div class="search-card">
-                <form action="#" class="search-form">
-                    <div class="form-group">
-                        <label for="protocolo">Número do Protocolo</label>
-                        <div class="input-with-button">
-                            <input type="text" id="protocolo" name="protocolo" placeholder="Ex: 2026-ABCD-1234" required aria-required="true">
-                            <button type="submit" class="btn btn-primary">CONSULTAR</button>
-                        </div>
-                    </div>
-                    <p class="helper-text">🔒 Consulta 100% anônima e segura.</p>
+            <p class="section-intro">Utilize o código de protocolo gerado ao final da sua denúncia para verificar o
+                andamento das investigações.</p>
+
+          <div class="search-card">
+    <div class="form-group">
+        <label for="inputProtocolo">Número do Protocolo</label>
+        <div class="input-with-button">
+            <input type="text" id="inputProtocolo" name="protocolo"
+                   placeholder="Ex: 2026-SSP-1234" required aria-required="true">
+            <button type="button" id="btnConsultar" class="btn btn-primary">CONSULTAR</button>
+        </div>
+    </div>
+    <p class="helper-text">🔒 Consulta 100% anônima e segura.</p>
+</div>
+                   
                 </form>
             </div>
 
             <div class="status-display" role="status" aria-live="polite">
                 <h2>Status da Ocorrência</h2>
-                
+
                 <div class="status-timeline">
                     <div class="timeline-step step-done">
                         <div class="step-marker">✓</div>
                         <span class="step-label">Protocolada</span>
                     </div>
-                    
+
                     <div class="timeline-step step-active">
                         <div class="step-marker">2</div>
                         <span class="step-label">Em Análise</span>
                     </div>
-                    
+
                     <div class="timeline-step">
                         <div class="step-marker">3</div>
                         <span class="step-label">Encaminhada</span>
                     </div>
-                    
+
                     <div class="timeline-step">
                         <div class="step-marker">4</div>
                         <span class="step-label">Concluída</span>
                     </div>
                 </div>
-
                 <div class="status-card">
                     <div class="detail-row">
                         <span class="detail-label">Última Atualização:</span>
-                        <span class="detail-value">28/04/2026 às 14:30</span>
+                        <!-- O ID tem que ser exatamente este -->
+                        <span class="detail-value" id="data-atualizacao">Aguardando consulta...</span>
                     </div>
                     <div class="detail-row">
                         <span class="detail-label">Situação:</span>
-                        <span class="detail-value">A denúncia foi criada e está sob análise técnica da delegacia especializada.</span>
+                        <!-- O ID tem que ser exatamente este -->
+                        <span class="detail-value" id="texto-situacao">Aguardando consulta...</span>
                     </div>
                 </div>
             </div>
@@ -103,18 +109,33 @@
     </footer>
 
     <div vw class="enabled">
-    <div vw-access-button class="active"></div>
-    <div vw-plugin-wrapper>
-        <div class="vw-plugin-top-wrapper"></div>
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
     </div>
-</div>
-<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-<script>
-    new window.VLibras.Widget('https://vlibras.gov.br/app');
-</script>
+    <script src="scripts.js"></script>
+     <!-- 1. CHATBASE (Seu Chatbot) -->
+    <script>
+    (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="Z3NUzuwDjytv1wmhsGTCN";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+    </script>
+
+    <!-- 2. VLIBRAS (Acessibilidade em Libras) -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+
 
 
 
 
 </body>
+
 </html>

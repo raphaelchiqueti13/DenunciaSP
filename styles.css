@@ -245,6 +245,9 @@ a.logo-area:hover { opacity: 0.85; }
   align-items: center;
 }
 
+/* ================================================
+   HERO SECTION — BASE (padrão: alinhamento esquerda)
+   ================================================ */
 .hero-section {
   display: flex;
   align-items: center;
@@ -295,6 +298,38 @@ a.logo-area:hover { opacity: 0.85; }
   align-items: center;
 }
 
+/* ================================================
+   HERO SECTION — CENTRALIZADO APENAS NA HOME
+   Adicione a classe .home-page no <body> da index
+   ================================================ */
+.home-page .hero-section {
+  justify-content: center;
+  text-align: center;
+}
+
+.home-page .hero-text-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 680px;
+}
+
+.home-page .hero-text-block h1::after {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.home-page .hero-text-block p {
+  text-align: center;
+}
+
+.home-page .cta-area {
+  justify-content: center;
+}
+
+/* ================================================
+   CHATBOT CARD
+   ================================================ */
 .chatbot-floating {
   flex: 0 0 320px;
   border-radius: var(--r-xl);
@@ -1027,21 +1062,34 @@ select option { background: var(--azul-escuro); color: var(--branco); }
     floatCard 4s  ease-in-out 1.3s infinite alternate;
 }
 
+
+/* ================================================
+   RESPONSIVIDADE — MELHORADA
+   ================================================ */
+
+/* Tablet grande */
 @media (max-width: 860px) {
   .hero-section {
     flex-direction: column;
     align-items: flex-start;
     padding: 60px 24px 72px;
   }
+  /* Na home, mantém centralizado em tablet grande */
+  .home-page .hero-section {
+    align-items: center;
+  }
   .chatbot-floating {
     flex: 1 1 100%;
-    max-width: 420px;
+    max-width: 100%;
     animation: fadeUp 0.7s ease both 0.52s;
   }
+  .hero-text-block { max-width: 100%; flex: 1 1 100%; }
   .hero-text-block h1 { font-size: 2rem; }
 }
 
+/* Tablet */
 @media (max-width: 768px) {
+  /* Formulário: 1 coluna */
   fieldset {
     grid-template-columns: 1fr;
     padding: 28px 22px;
@@ -1050,41 +1098,176 @@ select option { background: var(--azul-escuro); color: var(--branco); }
   .form-group,
   .form-row { grid-column: span 1 !important; }
   .form-row { grid-template-columns: 1fr; }
+
+  /* FAQ */
   .support-banner { padding: 32px 24px; }
   .support-banner h3 { font-size: 1.5rem; }
+
+  /* Navbar: reduz gap */
+  .nav-list { gap: 4px; }
+  .nav-list li a { padding: 7px 12px; font-size: 0.80rem; }
+
+  /* Acompanhar */
+  .tracking-section { margin: 48px auto; }
+  .search-card { padding: 30px 24px; }
+  .status-card { padding: 24px; }
 }
 
+/* Mobile */
 @media (max-width: 600px) {
+  /* ── Header ── */
   .navbar { height: 60px; }
-  .logo-img { height: 30px; }
-  .logo-text { font-size: 0.92rem; padding-left: 10px; }
-  .nav-list li a { padding: 6px 10px; font-size: 0.75rem; letter-spacing: 0.03em; }
-  .lang-selector { padding: 5px 8px; margin-left: 2px; }
-  .lang-selector span { font-size: 0.72rem; }
-  .hero-text-block h1 { font-size: 1.65rem; }
-  .hero-text-block p  { font-size: 0.93rem; }
-  .btn-premium { padding: 15px 28px; font-size: 0.82rem; }
-  .search-card { padding: 28px 20px; }
-  .input-with-button { flex-direction: column; }
-  .input-with-button .btn-primary { padding: 15px; width: 100%; }
+  .logo-img { height: 28px; }
+  .logo-text { font-size: 0.88rem; padding-left: 10px; }
+
+  /* Nav compacto */
+  .nav-list { gap: 0; }
+  .nav-list li a {
+    padding: 6px 9px;
+    font-size: 0.72rem;
+    letter-spacing: 0.02em;
+  }
+  /* Seletor de idioma */
+  .lang-selector { padding: 5px 7px; margin-left: 2px; }
+  .lang-selector span { font-size: 0.70rem; }
+  .lang-icon { width: 15px; height: 15px; }
+
+  /* ── Hero ── */
+  .hero-section { padding: 44px 16px 56px; gap: 32px; }
+  .hero-text-block h1 { font-size: 1.6rem; line-height: 1.2; }
+  .hero-text-block p  { font-size: 0.92rem; margin-bottom: 28px; }
+  .btn-premium { padding: 15px 28px; font-size: 0.82rem; width: 100%; justify-content: center; }
+  .cta-area { width: 100%; }
+
+  /* Na home mobile, mantém centralizado */
+  .home-page .cta-area { justify-content: center; }
+
+  /* Bot card */
+  .bot-card { padding: 20px; gap: 14px; }
+  .bot-icon { width: 44px; height: 44px; font-size: 1.4rem; }
+
+  /* ── Acompanhar ── */
+  .tracking-section { margin: 36px auto; }
+  .search-card { padding: 24px 16px; border-radius: var(--r-lg); }
+  .input-with-button { flex-direction: column; gap: 10px; }
+  .input-with-button input { padding: 14px 16px; font-size: 0.95rem; }
+  .input-with-button .btn-primary {
+    padding: 15px;
+    width: 100%;
+    border-radius: var(--r-md);
+  }
+  .helper-text { font-size: 0.78rem; }
+
+  /* Timeline vertical */
   .status-timeline {
     flex-direction: column;
     align-items: flex-start;
-    gap: 28px;
+    gap: 0;
+    margin-bottom: 32px;
   }
   .status-timeline::before {
-    left: 24px; top: 0; bottom: 0;
-    width: 2px; height: 100%; right: auto;
+    top: 0;
+    bottom: 0;
+    left: 24px;
+    right: auto;
+    width: 2px;
+    height: 100%;
   }
-  .timeline-step { flex-direction: row; gap: 18px; }
+  .timeline-step {
+    flex-direction: row;
+    gap: 16px;
+    padding: 12px 0;
+  }
+  .step-marker { width: 44px; height: 44px; font-size: 0.9rem; flex-shrink: 0; }
+  .step-label { font-size: 0.80rem; text-align: left; }
+
+  .status-card { padding: 20px 16px; border-radius: var(--r-md); }
+  .status-display h2 { font-size: 1.3rem; margin-bottom: 28px; }
+
+  /* ── FAQ ── */
+  .faq-section { margin: 36px auto; }
+  .section-header { margin-bottom: 32px; }
+  .section-header h1 { font-size: 1.9rem; }
+  .section-header p { font-size: 0.92rem; }
+
+  summary { padding: 18px 20px; font-size: 0.92rem; gap: 12px; }
+  summary::after { width: 24px; height: 24px; font-size: 1.1rem; line-height: 24px; }
+  .faq-answer { padding: 14px 20px 22px; font-size: 0.90rem; }
+
+  .support-banner {
+    padding: 28px 20px;
+    border-radius: var(--r-lg);
+    margin-top: 36px;
+  }
+  .support-banner h3 { font-size: 1.35rem; }
+  .support-banner p { font-size: 0.88rem; }
+  .btn-support { padding: 14px 28px; font-size: 0.84rem; width: 100%; justify-content: center; }
+
+  /* ── Formulário ── */
+  .trust-banner { margin: 20px 16px 0; padding: 12px 16px; font-size: 0.78rem; }
+  .trust-banner p { font-size: 0.78rem; }
+
+  .form-container { margin: 20px auto 48px; padding: 0 16px; }
+  .form-container h1 { font-size: 1.5rem; }
+  .form-subtitle { font-size: 0.88rem; margin-bottom: 24px; }
+
+  fieldset { padding: 22px 16px; border-radius: var(--r-lg); gap: 16px; }
+  legend { font-size: 1rem; }
+
+  input[type="text"],
+  input[type="date"],
+  input[type="time"],
+  select,
+  textarea {
+    padding: 13px 14px;
+    font-size: 0.92rem;
+  }
+  textarea { min-height: 110px; }
+
+  .custom-file-upload { padding: 24px 16px; }
+  .file-hint { font-size: 0.75rem; }
+
+  .confirm-checkbox span { font-size: 0.82rem; }
+  .btn-submit { padding: 16px 32px; font-size: 0.88rem; width: 100%; }
+  .protocol-warning { font-size: 0.76rem; }
+
+  /* ── Footer ── */
   .footer-container,
   .footer-content,
   .footer-wrapper {
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     text-align: center;
     height: auto;
-    padding: 20px 24px;
+    padding: 20px 16px;
+    gap: 10px;
   }
-  .footer-nav a { margin: 0 8px; }
-  .btn-submit { padding: 16px 40px; }
+  .footer-nav { display: flex; gap: 0; justify-content: center; }
+  .footer-nav a { margin: 0 10px; font-size: 0.78rem; }
+  .security-seal { justify-content: center; }
+  .security-tag { font-size: 0.70rem; }
 }
+
+/* Mobile muito pequeno */
+@media (max-width: 380px) {
+  .logo-text { display: none; }
+  .nav-list li a { padding: 6px 7px; font-size: 0.68rem; }
+  .hero-text-block h1 { font-size: 1.4rem; }
+  .btn-premium { font-size: 0.78rem; padding: 13px 20px; }
+}
+
+/* Modal do Chatbot Interno */
+.modal-chatbot {
+    display: none; position: fixed; z-index: 10001; 
+    left: 0; top: 0; width: 100%; height: 100%; 
+    background-color: rgba(0,0,0,0.6); backdrop-filter: blur(5px);
+}
+.modal-content-chat {
+    background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(15px);
+    margin: 10% auto; padding: 25px; border: 1px solid rgba(255,255,255,0.2);
+    width: 350px; border-radius: 20px; color: white; text-align: center;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+}
+.modal-content-chat h3 { margin-bottom: 15px; font-family: 'Urbanist', sans-serif; }
+.btn-fechar { background: #ff4d4d; border: none; padding: 10px 20px; border-radius: 10px; color: white; cursor: pointer; margin-top: 15px; }
