@@ -1257,6 +1257,53 @@ select option { background: var(--azul-escuro); color: var(--branco); }
   .btn-premium { font-size: 0.78rem; padding: 13px 20px; }
 }
 
+
+/* ===== FIX LARGURA TOTAL MOBILE ===== */
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.main-header {
+  width: 100%;
+  left: 0;
+  right: 0;
+}
+
+/* Fix nav mobile: esconde "Dúvidas" cortado */
+@media (max-width: 600px) {
+  .nav-list {
+    gap: 0;
+    flex-wrap: nowrap;
+    overflow: hidden;
+  }
+
+  .nav-list li a {
+    padding: 6px 8px;
+    font-size: 0.68rem;
+    letter-spacing: 0;
+    white-space: nowrap;
+  }
+
+  .logo-text {
+    font-size: 0.78rem;
+    padding-left: 8px;
+  }
+}
+
+@media (max-width: 420px) {
+  /* Esconde o texto "Web Denúncia" para dar espaço ao nav */
+  .logo-text {
+    display: none;
+  }
+
+  .nav-list li a {
+    padding: 6px 6px;
+    font-size: 0.66rem;
+  }
+}
 /* Modal do Chatbot Interno */
 .modal-chatbot {
     display: none; position: fixed; z-index: 10001; 
